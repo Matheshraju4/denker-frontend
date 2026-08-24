@@ -224,9 +224,9 @@ const LandingPage = () => {
         </section>
       </div>
 
-      <AboutUs />
       <Programs />
       <UpcomingClasses />
+      <AboutUs />
     </main>
   )
 }
