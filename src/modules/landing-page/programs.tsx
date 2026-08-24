@@ -80,7 +80,7 @@ function Programs() {
   return (
     <section
       id="programs"
-      className="w-full scroll-mt-8 bg-muted/40 text-foreground"
+      className="w-full scroll-mt-8 bg-muted/40 pt-8 text-foreground"
     >
       <div className="mx-auto max-w-[1600px] px-5 sm:px-8 lg:px-12 xl:px-20">
         <div className="max-w-2xl">
