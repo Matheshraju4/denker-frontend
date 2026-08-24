@@ -78,7 +78,7 @@ function HeroArtwork({ mobile = false }: { mobile?: boolean }) {
       <div
         className={
           mobile
-            ? "absolute inset-0 bg-background/80"
+            ? "absolute inset-0 bg-background/20"
             : "absolute inset-0 bg-gradient-to-r from-background via-background/65 to-transparent lg:via-background/15"
         }
       />
