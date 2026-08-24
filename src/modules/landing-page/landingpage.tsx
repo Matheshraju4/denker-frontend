@@ -3,11 +3,13 @@ import { ArrowUpRight, LogIn, UserPlus } from "lucide-react"
 import { Link } from "react-router-dom"
 
 import Programs from "./programs"
+import UpcomingClasses from "./upcoming-class"
+import AboutUs from "./aboutus"
 import { DarkModeToggle } from "@/components/common/dark_mode"
 
 const navItems = [
   { label: "Home", href: "#" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "#about" },
 
   { label: "Programs", href: "#programs" },
   { label: "classes/Schedule", href: "#classes" },
@@ -222,7 +224,9 @@ const LandingPage = () => {
         </section>
       </div>
 
+      <AboutUs />
       <Programs />
+      <UpcomingClasses />
     </main>
   )
 }
