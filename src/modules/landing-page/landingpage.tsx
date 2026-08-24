@@ -53,21 +53,35 @@ function HeroArtwork({ mobile = false }: { mobile?: boolean }) {
       aria-hidden="true"
       className={
         mobile
-          ? "relative -mx-5 mt-10 h-64 overflow-hidden sm:-mx-8 sm:h-80 lg:hidden"
+          ? "pointer-events-none absolute inset-0 overflow-hidden lg:hidden"
           : "pointer-events-none absolute inset-y-0 right-0 hidden w-[66%] overflow-hidden lg:block"
       }
     >
       <img
         src="/images/landing-hero-shooting.png"
         alt=""
-        className="absolute inset-0 size-full object-cover object-center dark:hidden"
+        className={
+          mobile
+            ? "absolute inset-0 size-full object-cover object-[62%_center] dark:hidden"
+            : "absolute inset-0 size-full object-cover object-center dark:hidden"
+        }
       />
       <img
         src="/images/landing-hero-shooting-dark.png"
         alt=""
-        className="absolute inset-0 hidden size-full object-cover object-center dark:block"
+        className={
+          mobile
+            ? "absolute inset-0 hidden size-full object-cover object-[62%_center] dark:block"
+            : "absolute inset-0 hidden size-full object-cover object-center dark:block"
+        }
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/65 to-transparent lg:via-background/15" />
+      <div
+        className={
+          mobile
+            ? "absolute inset-0 bg-background/80"
+            : "absolute inset-0 bg-gradient-to-r from-background via-background/65 to-transparent lg:via-background/15"
+        }
+      />
     </div>
   )
 }
@@ -76,7 +90,7 @@ const LandingPage = () => {
   return (
     <main className="min-h-svh overflow-hidden bg-background text-foreground">
       <div className="relative isolate overflow-hidden">
-        <header className="relative z-20 mx-auto flex h-24 w-full max-w-[1600px] items-center justify-between px-5 sm:px-8 lg:px-12 xl:px-20">
+        <header className="relative z-20 mx-auto flex h-20 w-full max-w-[1600px] items-center justify-between px-5 sm:h-24 sm:px-8 lg:px-12 xl:px-20">
           <Link
             to="/"
             aria-label="Denker Sports World Shooting home"
@@ -141,8 +155,10 @@ const LandingPage = () => {
 
         <HeroArtwork />
 
-        <section className="relative z-10 mx-auto flex min-h-[calc(100svh-6rem)] w-full max-w-[1600px] items-center px-5 pb-12 sm:px-8 lg:px-12 lg:pb-20 xl:px-20">
-          <div className="w-full pt-6 lg:w-[64%] lg:max-w-[940px] lg:pt-0">
+        <section className="relative z-10 mx-auto flex w-full max-w-[1600px] items-start px-5 pt-2 pb-12 sm:px-8 lg:min-h-[calc(100svh-6rem)] lg:items-center lg:px-12 lg:pt-0 lg:pb-20 xl:px-20">
+          <HeroArtwork mobile />
+
+          <div className="relative z-10 w-full lg:w-[64%] lg:max-w-[940px]">
             {/* <div className="group/credential inline-flex items-center gap-3 rounded-2xl border border-primary/20 bg-gradient-to-r from-primary/10 via-background/95 to-background/80 p-1.5 pr-4 shadow-[0_12px_40px_rgba(163,130,28,0.12)] backdrop-blur-xl">
             <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-[#171307] text-[#d8c270] shadow-[0_6px_18px_rgba(23,19,7,0.2)]">
               <Target
@@ -161,7 +177,7 @@ const LandingPage = () => {
             </span>
           </div> */}
 
-            <h1 className="mt-8 font-heading text-[clamp(3.15rem,5.2vw,5.2rem)] leading-[0.9] font-[750] tracking-[-0.06em] text-foreground">
+            <h1 className="mt-4 font-heading text-[clamp(3.15rem,5.2vw,5.2rem)] leading-[0.9] font-[750] tracking-[-0.06em] text-foreground lg:mt-8">
               <span className="block">Master Your Aim.</span>
               <span className="block sm:whitespace-nowrap">
                 Build <PrecisionMark />
@@ -172,13 +188,13 @@ const LandingPage = () => {
               </span>
             </h1>
 
-            <p className="mt-7 max-w-[540px] text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <p className="mt-5 max-w-[540px] text-base leading-relaxed text-muted-foreground sm:mt-7 sm:text-lg">
               Structured shooting-sport coaching for juniors and adults—building
               safe habits, disciplined technique, and competition-ready
               confidence.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
               <a
                 href="#programs"
                 className={buttonVariants({ variant: "outline", size: "lg" })}
@@ -194,7 +210,7 @@ const LandingPage = () => {
               </Link>
             </div>
 
-            <div className="mt-14 text-sm text-muted-foreground">
+            <div className="mt-10 text-sm text-muted-foreground sm:mt-14">
               <p>From first session to competition</p>
               <p className="mt-2 font-medium text-foreground/75">
                 Structured coaching <span className="mx-2 text-primary">•</span>{" "}
@@ -202,8 +218,6 @@ const LandingPage = () => {
                 Competitive pathways
               </p>
             </div>
-
-            <HeroArtwork mobile />
           </div>
         </section>
       </div>
